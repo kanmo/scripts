@@ -1,0 +1,21 @@
+#!/bin/bash
+
+
+while true
+do
+    printf "Enter a number between 20 and 30:"
+    read n
+
+    if (( 30 < n ))
+    then
+        printf "%d is too high\n" "$n" >&2
+        continue
+    elif (( n < 20 ))
+    then
+        printf "%d is too low\n" "$n" >&2
+        continue
+    else
+        printf "You entered %d\n" "$number"
+        break
+    fi
+done

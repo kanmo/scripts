@@ -1,0 +1,14 @@
+#!/bin/bash
+
+_revstr()
+{
+  var=$1
+  _REVSTR=
+  while [ -n "$var" ]
+  do
+      temp=${var#?}
+      char=${var%"$temp"}
+      _REVSTR+=$char
+      var=$temp
+  done
+}

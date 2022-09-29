@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ -d $1 ] && cd "$1"
+then
+    echo "$PWD"
+else
+    printf "$1 not found\n" "$1"
+fi

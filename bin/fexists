@@ -1,0 +1,16 @@
+#!/bin/bash
+
+while true
+do
+    echo "Please enter a file name"
+    read fname
+
+    if [[ -f $fname ]]
+    then
+        printf "$s is exists.\n" "$fname"
+        break
+    else
+        printf "No name entered: %s" "$fname" >&2
+        continue
+    fi
+done
