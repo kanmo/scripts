@@ -1,0 +1,18 @@
+#!/bin/bash
+
+_upword()
+{
+    local word=$1
+    while [ -n "$word" ]
+    do
+        to_upper "$word"
+        _UPWORD=$_UPWORD$_UPR
+        word=${word#?}
+    done
+}
+
+upword()
+{
+    _upword "$@"
+    printf "%s\n" "$_UPWORD"
+}

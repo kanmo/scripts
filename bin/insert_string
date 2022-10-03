@@ -1,0 +1,18 @@
+#!/bin/bash
+
+_insert_string() #@ USAGE: _insert_string STRING INSERTION [POSITION]
+{
+    local insert_string_dflt=2
+    local string=$1
+    local i_string=$2
+    local i_pos=${3:-${insert_string_dflt:-2}}
+    local left right
+    left=${string:0:$(( $_ipos -1 ))}
+    right=${string:$(( $i_pos - 1 ))}
+    _insert_string=$left$i_string$right
+}
+
+insert_string()
+{
+    _insert_string "$@" && printf "%s\n" "$_insert_string"
+}
