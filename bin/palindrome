@@ -1,0 +1,14 @@
+#!/bin/bash
+
+palindrome()
+{
+    _revstr $1
+    if [ "$1" = "$_REVSTR" ]
+    then
+        printf "%s\n" "argument is valid palindrome"
+        return 0
+    else
+        printf "%s\n" "argument is invalid palindrome"
+        return 1
+    fi
+}
