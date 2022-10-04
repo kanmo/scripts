@@ -7,7 +7,7 @@ _insert_string() #@ USAGE: _insert_string STRING INSERTION [POSITION]
     local i_string=$2
     local i_pos=${3:-${insert_string_dflt:-2}}
     local left right
-    left=${string:0:$(( $_ipos -1 ))}
+    left=${string:0:$(( $i_pos -1 ))}
     right=${string:$(( $i_pos - 1 ))}
     _insert_string=$left$i_string$right
 }

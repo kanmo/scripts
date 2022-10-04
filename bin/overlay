@@ -1,0 +1,18 @@
+#!/bin/bash
+
+_overlay()
+{
+    local string=$1
+    local sub=$2
+    local start=$3
+    local left right
+    left=${string:0:start-1}
+    right=${string:start+${#sub}-1}
+    echo ${#sub}
+    _OVERLAY=$left$sub$right
+}
+
+overlay()
+{
+    _overlay "$@" && printf "%s\n" "$_OVERLAY"
+}
