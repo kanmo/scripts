@@ -3,6 +3,7 @@
 _upword()
 {
     local word=$1
+    _UPWORD=
     while [ -n "$word" ]
     do
         to_upper "$word"
@@ -15,4 +16,5 @@ upword()
 {
     _upword "$@"
     printf "%s\n" "$_UPWORD"
+
 }

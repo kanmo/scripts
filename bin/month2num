@@ -10,5 +10,6 @@ _month2num()
 
 month2num()
 {
+    _MONTH2NUM=
     _month2num "$@" && printf "%s\n" "$_MONTH2NUM"
 }
