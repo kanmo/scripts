@@ -1,0 +1,14 @@
+#!/bin/bash
+
+_rtrim()
+{
+    local trimg_string
+    _TRIM=$1
+    trim_string=${_TRIM##*[!${2:- }]}
+    _TRIM=${_TRIM%"$trim_string"}
+}
+
+rtrim()
+{
+    _rtrim "$@" && printf "%s\n" "$_TRIM"
+}
