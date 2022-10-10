@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cdm()
+{
+    local dir IFS=$'\n' item
+    for dir in $(dirs -l -p)
+    do
+        [ "$dir" = "$PWD" ] && continue
+        case ${item[*]} in
+            *"$dir:"*) ;;
+            *) item+=( "$dir:cd '$dir'" ) ;;
+        esac
+    done
+    menu "${item[@]}" Quit:
+}
