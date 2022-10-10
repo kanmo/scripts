@@ -8,7 +8,7 @@ cdm()
         [ "$dir" = "$PWD" ] && continue
         case ${item[*]} in
             *"$dir:"*) ;;
-            *) item+=( "$dir:cd '$dir'" ) ;;
+            *) item+=( "$dir:cd '$dir'" ) ;; ## add $dir to indexed array
         esac
     done
     menu "${item[@]}" Quit:

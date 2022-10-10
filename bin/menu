@@ -3,7 +3,7 @@
 menu()
 {
     local IFS=$' \t\n'
-    local num n=1 opt item cmd
+    local num n=1 opt item
     echo
 
     for item
@@ -15,6 +15,10 @@ menu()
 
     if [ $# -lt 10 ]
     then
+        ## set option to accept key without ENTER
+        ## -s Done not echo the user's input
+        ## -n <number> Returns after reading the specified number of characters
+        ##             while honoring the delimiter to terminate early
         opt=-sn1
     else
         opt=
@@ -33,7 +37,7 @@ menu()
 
     if [ "$num" -le "$#" ]
     then
-        eval "${!num#*:}"
+        eval "${!num#*:}" ## 変数を間接参照してコマンド実行する
     else
         printf "\aInvalid respnse: %s\n" "$num" >&2
         return 1
