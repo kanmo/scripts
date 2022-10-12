@@ -1,0 +1,6 @@
+#!/bin/bash
+
+k()
+{
+    man -k "$@" | grep '(1'
+}

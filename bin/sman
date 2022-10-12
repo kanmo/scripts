@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sman() #@ USAGE: sman command search_pattern
+{
+  LESS="$LESS${2:+ +/$2}" man "$1"
+}

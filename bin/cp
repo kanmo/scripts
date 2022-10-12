@@ -1,0 +1,18 @@
+#!/bin/bash
+
+cp()
+{
+  local final
+  if [ $# -eq 1 ]                  ## Only one arg,
+  then
+    command cp -b "$1" .           ## so copy it to the current directory
+  else
+    final=${!#}
+    if [ -d "$final" ]             ## if last arg is a directory
+    then
+      command cp -b "$@"           ## copy all the files into it
+    else
+      command cp -b "$@" .         ## otherwise, copy to the current directory
+    fi
+  fi
+}

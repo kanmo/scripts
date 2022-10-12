@@ -1,0 +1,11 @@
+#!/bin/bash
+
+calc()
+{
+    local result=$(awk 'BEGIN { OFMT="%f"; print '"$*"'; exit}')
+    case $result in
+        *.*0) result=${result%"${result##*[!0]}"} ;;
+    esac
+    printf "%s\n" "$result"
+
+}
