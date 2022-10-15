@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+asearch()                       #@ Search for substring in array; results in array _asearch_elements
+{                               #@ USAGE: asearch arrayname string
+    local arrayname=$1 substring=$2 array
+
+    eval "array=( \"\${$arrayname[@]}\" )"
+
+    case ${array[*]} in
+        *"$substring"*) ;;
+        *) return 1 ;;
+    esac
+
+    unset _asearch_elements
+    for subscript in "${!array[@]}"
+    do
+        case ${array[$subscript]} in
+            *"$substring"*)
+                _asearch_elements+=( "${array[$subscript]}" )
+                ;;
+        esac
+    done
+}

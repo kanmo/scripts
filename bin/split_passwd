@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+split_passwd()
+{
+    IFS=: read user passwd uid gid name homedir shell <<.
+$1
+.
+}

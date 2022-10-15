@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+split_record()
+{
+    local rcord=${1:?} IFS=${2:?}
+    : ${3:?}
+    shift 2
+
+    read "$@" <<.
+$record
+.
+}
