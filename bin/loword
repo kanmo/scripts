@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+. to_lower
+
+loword()
+{
+    _loword "$@"
+    printf "%s\n" "$_LOWORD"
+}
+
+_loword()
+{
+    local word=$1
+    _LOWORD=
+    while [ -n "$word" ]
+    do
+        to_lower "$word"
+        _LOWORD=$_LOWORD$_LWR
+        word=${word#?}
+    done
+}
